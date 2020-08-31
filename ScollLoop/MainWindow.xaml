@@ -1,0 +1,34 @@
+﻿<Window x:Class="ScollLoop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScollLoop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="300">
+    <Grid>
+        
+        <Border>
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <RectAnimation Storyboard.TargetProperty="Background.(ImageBrush.Viewport)"
+                                    To="0,30.2,1,1" From="0,0,1,1" Duration="0:0:10" AccelerationRatio="0.5" DecelerationRatio="0.5"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.Background>
+                <ImageBrush
+                ImageSource="test.png"
+                Viewport="0,1,1,1" TileMode="Tile" />
+            </Border.Background>
+        </Border>
+        <Rectangle Fill="Red" Height="10"/>
+    </Grid>
+</Window>
